@@ -32,8 +32,11 @@ jobs:
       - name: Run tests
         run: dotnet test GiftAccessoriesManagement/GiftAccessoriesManagement.csproj --configuration Release --no-build --verbosity normal
 
-      - name: Check C# code style
-        run: dotnet-format --verify-no-changes
+      - name: Check C# code style and syntax
+        run: |
+          cd GiftAccessoriesManagement
+          chmod +x check-cs.sh
+          ./check-cs.sh
 
       - name: Publish project
         run: dotnet publish GiftAccessoriesManagement/GiftAccessoriesManagement.csproj --configuration Release --no-build --output ./publish
