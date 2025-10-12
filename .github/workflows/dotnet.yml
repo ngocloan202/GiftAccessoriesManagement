@@ -26,7 +26,12 @@ jobs:
       - name: Code style check (dotnet-format)
         run: |
           dotnet tool update -g dotnet-format || dotnet tool install -g dotnet-format
-          ~/.dotnet/tools/dotnet-format --verify-no-changes
+          sln_file=$(find . -maxdepth 2 -name "*.sln" | head -n 1)
+          if [ -n "$sln_file" ]; then
+            dotnet format "$sln_file" --verify-no-changes
+          else
+            echo "No solution file found. Skipping format check."
+          fi
 
       # Build sẽ biên dịch Razor (.cshtml) -> bắt lỗi cú pháp Razor/TagHelper
       - name: Build (Release)
