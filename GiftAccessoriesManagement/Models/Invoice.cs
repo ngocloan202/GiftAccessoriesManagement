@@ -14,7 +14,7 @@ namespace GiftAccessoriesManagement.Models
         [Column(TypeName = "date")]
         public DateTime InvoiceDate { get; set; }
 
-        public int InvoiceType { get; set; } // 0: Sale, 1: Return
+        public InvoiceKind InvoiceType { get; set; } // 0: Sale, 1: Return
         public int CustomerId { get; set; }
         public int EmployeeId { get; set; }
 
@@ -22,5 +22,10 @@ namespace GiftAccessoriesManagement.Models
         public virtual Employee? Employee { get; set; }
 
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; } = new List<InvoiceDetail>();
+    }
+    public enum InvoiceKind
+    {
+        Sale = 0,
+        Return = 1
     }
 }
