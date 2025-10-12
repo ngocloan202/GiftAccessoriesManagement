@@ -1,0 +1,71 @@
+﻿@model IEnumerable<GiftAccessoriesManagement.Models.Product>
+
+@{
+    ViewData["Title"] = "Sản phẩm";
+}
+
+<h1>Danh sách sản phẩm</h1>
+
+<p class="btn btn-primary">
+    <a class="text-white text-decoration-none" asp-action="Create">Thêm mới </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StockQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ProductId">Sửa</a> 
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ProductId">Chi tiết</a> 
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ProductId">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
