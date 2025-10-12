@@ -12,8 +12,9 @@ namespace GiftAccessoriesManagement.Models
         public decimal UnitPrice { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal TotalPrice { get; set; }
-        //public Batch BatchId { get; set; }
-        //public GoodsReceipt GoodsReceiptID { get; set; }
-            
+
+        public Batch BatchId { get; set; }
+        public GoodsReceipt GoodsReceiptID { get; set; }
+
     }
 }
