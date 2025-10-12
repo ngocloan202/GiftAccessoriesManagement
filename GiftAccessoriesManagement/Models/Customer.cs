@@ -21,9 +21,9 @@ namespace GiftAccessoriesManagement.Models
         //public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
         public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
     }
-        public enum Sex
-        {
-            Male,
-            Female
-        }
+    public enum Sex
+    {
+        Male,
+        Female
+    }
 }
