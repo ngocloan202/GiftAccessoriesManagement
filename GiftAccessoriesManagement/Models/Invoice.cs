@@ -18,9 +18,9 @@ namespace GiftAccessoriesManagement.Models
         public int CustomerId { get; set; }
         public int EmployeeId { get; set; }
 
-        //public virtual Customer? Customer { get; set; }
-        //public virtual Employee? Employee { get; set; }
+        public virtual Customer? Customer { get; set; }
+        public virtual Employee? Employee { get; set; }
 
-        //public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; } = new List<InvoiceDetail>();
+        public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; } = new List<InvoiceDetail>();
     }
 }
