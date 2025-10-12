@@ -13,7 +13,7 @@ namespace GiftAccessoriesManagement.Models
         public Role Role { get; set; }
         public int Status { get; set; }
 
-        public virtual Customer? Customer { get; set; }
+        //public virtual Customer? Customer { get; set; }
 
         //public virtual Employee? Employee { get; set; }
     }
