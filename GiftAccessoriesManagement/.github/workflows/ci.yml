@@ -1,4 +1,4 @@
-name: Pull Request
+name: C# Build and Test
 
 on:
   pull_request:
@@ -19,12 +19,18 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore GiftAccessoriesManagement/GiftAccessoriesManagement.csproj
 
       - name: Build project
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build GiftAccessoriesManagement/GiftAccessoriesManagement.csproj --configuration Release --no-restore
 
-      - name: Check code style
+      - name: Run tests
+        run: dotnet test GiftAccessoriesManagement/GiftAccessoriesManagement.csproj --configuration Release --no-build --verbosity normal
+
+      - name: Check C# code style
         run: |
           dotnet tool update -g dotnet-format || dotnet tool install -g dotnet-format
-          ~/.dotnet/tools/dotnet-format --verify-no-changes
+          ~/.dotnet/tools/dotnet-format GiftAccessoriesManagement/ --verify-no-changes
+
+      - name: Publish project
+        run: dotnet publish GiftAccessoriesManagement/GiftAccessoriesManagement.csproj --configuration Release --no-build --output ./publish
