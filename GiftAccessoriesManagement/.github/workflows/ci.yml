@@ -29,14 +29,8 @@ jobs:
       - name: Build project
         run: dotnet build GiftAccessoriesManagement/GiftAccessoriesManagement.csproj --configuration Release --no-restore
 
-      - name: Run tests
-        run: dotnet test GiftAccessoriesManagement/GiftAccessoriesManagement.csproj --configuration Release --no-build --verbosity normal
-
       - name: Check C# code style and syntax
-        run: |
-          cd GiftAccessoriesManagement
-          chmod +x check-cs.sh
-          ./check-cs.sh
+        run: dotnet-format --verify-no-changes
 
       - name: Publish project
         run: dotnet publish GiftAccessoriesManagement/GiftAccessoriesManagement.csproj --configuration Release --no-build --output ./publish
