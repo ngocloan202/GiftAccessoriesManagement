@@ -7,14 +7,14 @@ namespace GiftAccessoriesManagement.Models
     {
         [Key]
         public int ProductId { get; set; }
-        
+
         [Required, MaxLength(30)]
         public string? ProductCode { get; set; }
-        
+
         [Required, MaxLength(255)]
         public string? ProductName { get; set; }
-        
-        [Column(TypeName ="decimal(18,2)")]
+
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
         public string? Description { get; set; }
