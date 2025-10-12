@@ -18,8 +18,13 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Restore dependencies
+        run: dotnet restore
 
-      - name: Run lint
-        run: npm run lint
+      - name: Build project
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Check code style
+        run: |
+          dotnet tool update -g dotnet-format || dotnet tool install -g dotnet-format
+          ~/.dotnet/tools/dotnet-format --verify-no-changes
