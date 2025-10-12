@@ -1,7 +1,4 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: .NET
+name: .NET (Build + Lint)
 
 on:
   push:
@@ -11,18 +8,30 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    # - name: Test
-    #   run: dotnet test --no-build --verbosity normal
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      # Kiểm tra format C# (không áp dụng cho .cshtml)
+      - name: Code style check (dotnet-format)
+        run: |
+          dotnet tool update -g dotnet-format || dotnet tool install -g dotnet-format
+          ~/.dotnet/tools/dotnet-format --verify-no-changes
+
+      # Build sẽ biên dịch Razor (.cshtml) -> bắt lỗi cú pháp Razor/TagHelper
+      - name: Build (Release)
+        run: dotnet build --configuration Release --no-restore
+
+      # (Bật nếu có test)
+      # - name: Test
+      #   run: dotnet test --configuration Release --no-build --verbosity normal
