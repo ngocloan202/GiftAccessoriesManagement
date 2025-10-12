@@ -19,7 +19,7 @@ namespace GiftAccessoriesManagement.Models
         public string PhoneNumber { get; set; }
         public DateTime RegistrationDate { get; set; }
         //public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
-        public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
+        //public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
     }
     public enum Sex
     {
