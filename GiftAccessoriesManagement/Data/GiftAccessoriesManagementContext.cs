@@ -9,7 +9,7 @@ namespace GiftAccessoriesManagement.Data
 {
     public class GiftAccessoriesManagementContext : DbContext
     {
-        public GiftAccessoriesManagementContext (DbContextOptions<GiftAccessoriesManagementContext> options)
+        public GiftAccessoriesManagementContext(DbContextOptions<GiftAccessoriesManagementContext> options)
             : base(options)
         {
         }
