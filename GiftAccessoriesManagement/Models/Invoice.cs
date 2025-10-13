@@ -9,7 +9,7 @@ namespace GiftAccessoriesManagement.Models
         public int InvoiceId { get; set; }
 
         [Required, MaxLength(30)]
-        public string? InvoiceCode { get; set; } // INV2025300123
+        public string InvoiceCode { get; set; } // INV2025300123
 
         [Column(TypeName = "date")]
         public DateTime InvoiceDate { get; set; }
