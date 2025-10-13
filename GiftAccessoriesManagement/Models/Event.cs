@@ -19,13 +19,13 @@ namespace GiftAccessoriesManagement.Models
         public float Discount { get; set; }
 
         [Required]
-        public DateTime StartDate { get; set; } 
+        public DateTime StartDate { get; set; }
 
         [Required]
         public DateTime EndDate { get; set; }
 
         [Required]
-        public int Status{ get; set; }
+        public int Status { get; set; }
         // Navigation property
         //public virtual ICollection<EventProduct> EventProducts { get; set; } = new List<EventProduct>();
     }
