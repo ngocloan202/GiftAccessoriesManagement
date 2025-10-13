@@ -17,10 +17,9 @@ namespace GiftAccessoriesManagement.Models
 
         //public virtual Employee? Employee { get; set; }
     }
-    public enum Role
-    {
-        Manage,
-        Employee,
-        Customer
+    public enum Role {
+        Manage=1,
+        Employee=2,
+        Customer=3
     }
 }
