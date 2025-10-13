@@ -11,7 +11,7 @@ namespace GiftAccessoriesManagement.Models
         [Key, Column(Order = 1)]
         public int ProductId { get; set; }
 
-        public virtual Event? Event { get; set; }
+        //public virtual Event? Event { get; set; }
         public virtual Product? Product { get; set; }
 
     }
