@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using GiftAccessoriesManagement.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<GiftAccessoriesManagementContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("GiftAccessoriesManagementContext") ?? throw new InvalidOperationException("Connection string 'GiftAccessoriesManagementContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
