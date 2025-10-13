@@ -10,6 +10,5 @@ namespace GiftAccessoriesManagement.Models
         public int QuantityReceived { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal ImportPrice { get; set; }
-
     }
 }
