@@ -23,8 +23,8 @@ namespace GiftAccessoriesManagement.Models
 
         public int CategoryId { get; set; }
 
-        //public virtual Category? Category { get; set; }
-        //public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; } = new List<InvoiceDetail>();
+        public virtual Category? Category { get; set; }
+        public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; } = new List<InvoiceDetail>();
         //public virtual ICollection<GoodsReceiptDetail> GoodsReceiptDetails { get; set; } = new List<GoodsReceiptDetail>();
         //public virtual ICollection<EventProduct> EventProducts { get; set; } = new List<EventProduct>();
     }
