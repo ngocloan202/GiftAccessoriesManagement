@@ -4,8 +4,8 @@ namespace GiftAccessoriesManagement.Models
 {
     public class GoodsReceiptDetail
     {
+        [Key]
         public int GoodsReceiptDetailId { get; set; }
-        [Required, MaxLength(30)]
         public int GoodsReceiptId { get; set; }
         public int ProductId { get; set; }
         public int QuantityReceived { get; set; }
