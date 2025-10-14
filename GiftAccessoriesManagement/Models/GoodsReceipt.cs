@@ -7,7 +7,7 @@ namespace GiftAccessoriesManagement.Models
         [Key]
         public int GoodsReceiptId { get; set; }
         [Required, MaxLength(30)]
-        public string? ReceiptCode { get; set; }
+        public string ReceiptCode { get; set; } = string.Empty;
         public DateTime ReceiptDate { get; set; }
         public string? Note { get; set; }
         public int EmployeeId { get; set; }
